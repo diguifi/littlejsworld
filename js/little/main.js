@@ -1,12 +1,13 @@
 
 var Game = {
-    context: ctx,
     deltaTime: 0,
     lastFrameTimeMs: 0,
-    player: Player,
+    level: 1,
+    player: new GameObj.Player(20,400,30),
+    enemies: [new GameObj.Enemy(10,300,30,0.1)],
 
     init: function init(){
-        this.player.draw(ctx);
+        this.player.draw();
         requestAnimationFrame(Game.mainLoop);
     },
 
@@ -19,7 +20,10 @@ var Game = {
     mainLoop: function mainLoop(timestamp){
       this.deltaTime = timestamp - this.lastFrameTimeMs; // get the delta time since last frame
       this.lastFrameTimeMs = timestamp;
-  
+      if(isNaN(this.deltaTime))
+        this.deltaTime = 0;
+
+      ctx.clearRect(0, 0, c.width, c.height);
       Game.update(this.deltaTime);
   
       requestAnimationFrame(Game.mainLoop);
@@ -29,8 +33,8 @@ var Game = {
   
       this.player.moveKey(deltaTime);
   
-      ctx.clearRect(0, 0, c.width, c.height);
       this.player.draw(ctx);
+      this.enemies[0].update(deltaTime);
   
     }
 }

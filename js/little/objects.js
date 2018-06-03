@@ -63,8 +63,9 @@ var GameObj = {
           this.deltaY += this.speed;
       }
       
-      if(this.checkColl(player))
-        console.log("collision");
+      if(this.checkColl(player)){
+        ctx.fillText("Ouch!",player.x-5,player.y-5);
+      }
 
       this.draw();
     }

@@ -10,21 +10,28 @@
     
     <!--boots-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--custom-->
+    <link rel="stylesheet" href="css/style.css?v=1.0">
     <!-- Add favicon -->
 	  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <title>LittleJs</title>
 
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
   </head>
 
   <body>
 
     <center>
-      <div class="game-area">
+      <div id="container">
+        <div id="core">
 
-          <h1 class="mb-5 pt-4">Welcome to LittleJs World</h1>
-          <canvas id="mainCanvas" width="640" height="480" style="border:1px solid #000000;"></canvas>
+            <h1 class="pt-4">Welcome to LittleJs World</h1>
+            <canvas id="mainCanvas" width="640" height="480" style="border:1px solid #000000;"></canvas>
 
+        </div>
       </div>
     </center>
 
@@ -36,16 +43,4 @@
     <script src="js/little/main.js"></script>
 
   </body>
-  <style>
-    body {
-      background-color: seagreen;
-    }
-
-    .game-area {
-      height: 100vh;
-      width: 100vh;
-      background-color: white;
-    }
-  </style>
-
 </html>

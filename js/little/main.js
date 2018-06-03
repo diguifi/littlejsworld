@@ -3,8 +3,8 @@ var Game = {
     deltaTime: 0,
     lastFrameTimeMs: 0,
     level: 1,
-    player: new GameObj.Player(20,400,30),
-    enemies: [new GameObj.Enemy(10,300,30,0.1)],
+    player: new GameObj.Player(20,400,20),
+    enemies: [new GameObj.Enemy(10,300, 1, 0, 20,0.1), new GameObj.Enemy(50, 200, 0, 1, 20, 0.1)],
 
     init: function init(){
         this.player.draw();
@@ -30,11 +30,13 @@ var Game = {
     },
   
     update: function update(deltaTime){
-  
+      var i = 0;
+
       this.player.moveKey(deltaTime);
-  
       this.player.draw(ctx);
-      this.enemies[0].update(deltaTime);
+
+      for(i=0; i < this.enemies.length ; i++)
+        this.enemies[i].update(deltaTime, this.player);
   
     }
 }

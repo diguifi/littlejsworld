@@ -1,4 +1,4 @@
 # littlejsworld
 Simple game made in JavaScript
 
-play at: diguifi.github.io/littlejsworld
+play at: [littlejsworld](diguifi.github.io/littlejsworld)

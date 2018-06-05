@@ -37,33 +37,27 @@ var GameObj = {
     this.reset = function(){
       this.deltaX= 0;
       this.deltaY= 0;
-      this.speed= 0.3;
       this.draw();
     }
 
-    this.update = function(deltaTime){
-
-      if(this.x + this.size <= c.width && this.x >= 0)
+    this.update = function(deltaTime, blocks){
+      for(i=0; i < blocks.length ; i++){
+        if(this.checkColl(blocks[i])){
+          this.dirX = -this.dirX;
+          this.dirY = -this.dirY;
+        }
+      }
         this.deltaX += this.speed * deltaTime * this.dirX;
-      else{
-        this.dirX = -this.dirX;
-        if(this.deltaX>0)
-          this.deltaX -= this.speed * deltaTime + 0.1;
-        else
-          this.deltaX += this.speed * deltaTime + 0.1;
-      }
-
-      if(this.y + this.size <= c.height && this.y >= 0)
         this.deltaY += this.speed * deltaTime * this.dirY;
-      else{
-        this.dirY = -this.dirY;
-        if(this.deltaY > 0)
-          this.deltaY -= this.speed * deltaTime + 0.1;
-        else
-          this.deltaY += this.speed * deltaTime + 0.1;
-      }
 
       this.draw();
+    }
+
+    this.checkColl = function(obstacle){
+      return obstacle.x < this.x + this.size &&
+      obstacle.x + obstacle.size > this.x &&
+      obstacle.y < this.y + this.size &&
+      obstacle.y + obstacle.size > this.y;
     }
   },
 
@@ -107,13 +101,13 @@ var GameObj = {
       var i = 0;
       for(i=0; i < enemies.length ; i++){
         if(this.checkColl(enemies[i])){
-          ctx.fillText("Ouch!",this.x-5,this.y-5);
+          this.reset();
         }
       }
 
       for(i=0; i < blocks.length ; i++){
         if(this.checkColl(blocks[i])){
-          ctx.fillText("Ouch!",this.x-5,this.y-5);
+          this.reset();
         }
       }
     }
@@ -121,7 +115,6 @@ var GameObj = {
     this.reset = function(){
       this.deltaX= 0;
       this.deltaY= 0;
-      this.speed= 0.3;
       this.draw();
     }
 

@@ -41,16 +41,16 @@ var GameObj = {
       this.draw();
     }
 
-    this.update = function(deltaTime, player){
+    this.update = function(deltaTime){
 
       if(this.x + this.size <= c.width && this.x >= 0)
         this.deltaX += this.speed * deltaTime * this.dirX;
       else{
         this.dirX = -this.dirX;
         if(this.deltaX>0)
-          this.deltaX -= this.speed + 5;
+          this.deltaX -= this.speed * deltaTime + 0.1;
         else
-          this.deltaX += this.speed + 5;
+          this.deltaX += this.speed * deltaTime + 0.1;
       }
 
       if(this.y + this.size <= c.height && this.y >= 0)
@@ -58,23 +58,12 @@ var GameObj = {
       else{
         this.dirY = -this.dirY;
         if(this.deltaY > 0)
-          this.deltaY -= this.speed;
+          this.deltaY -= this.speed * deltaTime + 0.1;
         else
-          this.deltaY += this.speed;
-      }
-      
-      if(this.checkColl(player)){
-        ctx.fillText("Ouch!",player.x-5,player.y-5);
+          this.deltaY += this.speed * deltaTime + 0.1;
       }
 
       this.draw();
-    }
-
-    this.checkColl = function(player){
-      return player.x < this.x + this.size &&
-         player.x + player.size > this.x &&
-         player.y < this.y + this.size &&
-         player.y + player.size > this.y;
     }
   },
 
@@ -86,7 +75,7 @@ var GameObj = {
 
     this.deltaX = 0;
     this.deltaY = 0;
-    this.speed = 0.3;
+    this.speed = 0.2;
 
     this.size = size;
     this.x = this.spawn[0] + this.deltaX;
@@ -106,10 +95,27 @@ var GameObj = {
       ctx.lineWidth = 5;
       ctx.strokeStyle = "rgba(102, 102, 102, 1)";
       ctx.stroke();
-
       
       ctx.fillStyle = "rgba(0, 214, 103, 1)";
       ctx.fill();
+    }
+
+    this.update = function(enemies, blocks){
+
+      this.draw();
+
+      var i = 0;
+      for(i=0; i < enemies.length ; i++){
+        if(this.checkColl(enemies[i])){
+          ctx.fillText("Ouch!",this.x-5,this.y-5);
+        }
+      }
+
+      for(i=0; i < blocks.length ; i++){
+        if(this.checkColl(blocks[i])){
+          ctx.fillText("Ouch!",this.x-5,this.y-5);
+        }
+      }
     }
 
     this.reset = function(){
@@ -121,42 +127,45 @@ var GameObj = {
 
     this.moveKey = function(deltaTime) {
       if (keys[37]) {
-        if (this.spawn[0] + this.deltaX >= 0) {
+        if (this.x >= 0) {
           this.deltaX -= deltaTime * this.speed;
-        }else{
-          this.deltaX += 0.5 * deltaTime;
+        }
+        else{
+          this.deltaX += deltaTime * this.speed + 0.1;
         }
       }
 
       if (keys[39]) {
-        if (this.spawn[0] + this.deltaX <= c.width - (this.spawn[2]-this.spawn[0])) {
+        if (this.x + this.size <= c.width) {
           this.deltaX += deltaTime * this.speed;
-        }else{
-          this.deltaX -= 0.5 * deltaTime;
+        }
+        else{
+          this.deltaX -= deltaTime * this.speed + 0.1;
         }
       }
       if (keys[40]) {
-        if (this.spawn[3] + this.deltaY <= c.height - (this.spawn[4]-this.spawn[0])) {
+        if (this.y + this.size <= c.height) {
           this.deltaY += deltaTime * this.speed;
-        }else{
-          this.deltaY -= 0.5 * deltaTime;
+        }
+        else{
+          this.deltaY -= deltaTime * this.speed + 0.1;
         }
       }
       if (keys[38]) {
-        if (this.spawn[1] + this.deltaY >= 0) {
+        if (this.y >= 0) {
           this.deltaY -= deltaTime * this.speed;
-        }else{
-          this.deltaY += 0.5 * deltaTime;
+        }
+        else{
+          this.deltaY += deltaTime * this.speed + 0.1;
         }
       }
     }
-  }
-}
 
-//test this when implementing collision
-function collides(a, b) {
-  return a.x < b.x + b.width &&
-         a.x + a.width > b.x &&
-         a.y < b.y + b.height &&
-         a.y + a.height > b.y;
+    this.checkColl = function(obstacle){
+      return obstacle.x < this.x + this.size &&
+      obstacle.x + obstacle.size > this.x &&
+      obstacle.y < this.y + this.size &&
+      obstacle.y + obstacle.size > this.y;
+    }
+  }
 }

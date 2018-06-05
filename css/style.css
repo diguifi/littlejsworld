@@ -40,10 +40,11 @@ h1 {
   width: 650px;
   margin: auto;
   background-color: rgb(224, 224, 224);
-  height: 590px;
+  height: 100%;
   top: 50%;
 }
 
 #container {
   background-color: rgb(19, 85, 48);
+  background: linear-gradient(rgb(28, 130, 73),rgb(19, 85, 48));
 }

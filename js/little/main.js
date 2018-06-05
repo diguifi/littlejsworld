@@ -3,11 +3,14 @@ var Game = {
     deltaTime: 0,
     lastFrameTimeMs: 0,
     level: 1,
-    player: new GameObj.Player(20,400,20),
-    enemies: [new GameObj.Enemy(10,300, 1, 0, 20,0.1), new GameObj.Enemy(50, 200, 0, 1, 20, 0.1)],
+    player: new GameObj.Player(20, 400, 20),
+    enemies: [new GameObj.Enemy(10, 300, 1, 0, 20, 0.1), new GameObj.Enemy(50, 200, 0, 1, 20, 0.1)],
+    map: new Maps.Level1(),
 
     init: function init(){
         this.player.draw();
+        console.log(this.map);
+        this.map.buildMap();
         requestAnimationFrame(Game.mainLoop);
     },
 
@@ -31,12 +34,13 @@ var Game = {
   
     update: function update(deltaTime){
       var i = 0;
+      this.map.update();
 
       this.player.moveKey(deltaTime);
-      this.player.draw(ctx);
+      this.player.update(this.enemies, this.map.blocks);
 
       for(i=0; i < this.enemies.length ; i++)
-        this.enemies[i].update(deltaTime, this.player);
+        this.enemies[i].update(deltaTime);
   
     }
 }

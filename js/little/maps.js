@@ -1,25 +1,69 @@
 var map1 = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,4,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,5,0,1,1],
+            [1,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+
+var map2 = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,3,0,0,1,0,0,0,0,0,0,0,0,0,3,0,0,1,1],
+            [1,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,1,1],
+            [1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1],
+            [1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1],
+            [1,0,0,0,1,1,0,2,0,0,0,1,0,0,0,0,2,0,1,1,0,0,0,0,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
             [1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
-            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,1,1,1,0,0,2,0,1,1],
+            [1,0,4,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,5,0,0,0,0,0,1,1],
             [1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
 
+var map3 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+
 var Maps = {
+    Player:  new GameObj.Player(-25, -25, 20),
+
     Block: function(x,y,size){
         this.spawn = [x, y,
           x+size, y,
@@ -46,19 +90,39 @@ var Maps = {
     Level1: function(){
         this.blockSize = 25;
         this.blocks = [];
-        this.enemies = [new GameObj.Enemy(450, 300, 1, 0, 20, 0.1), new GameObj.Enemy(100, 200, 0, 1, 20, 0.1)];
+        this.enemies = [];
+        this.winblock = {};
+        this.map = map1;
 
         this.buildMap = function(){
             var i = 0;
             var j = 0;
             var b = 0;
+            var c = 0;
             
             for(i=0; i < 26; i++){
                 for(j=0; j < 20; j++){
-                    if(map1[j][i]==1){
+                    if(this.map[j][i]==1){
                         this.blocks.push(new Maps.Block(i*this.blockSize, j*this.blockSize, this.blockSize));
                         this.blocks[b].draw();
                         b++;
+                    }
+                    else if(this.map[j][i]==2){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 1, 0, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==3){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 0, 1, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==4){
+                        Maps.Player.newPosition(i*this.blockSize, j*this.blockSize, 20);
+                    }
+                    else if(this.map[j][i]==5){
+                        this.winblock = new GameObj.WinBlock(i*this.blockSize, j*this.blockSize, 20);
+                        this.winblock.draw();
                     }
                 }
             }
@@ -72,7 +136,7 @@ var Maps = {
             
             for(i=0; i < 26; i++){
                 for(j=0; j < 20; j++){
-                    if(map1[j][i]==1){
+                    if(this.map[j][i]==1){
                         this.blocks[b].draw();
                         b++;
                     }
@@ -82,6 +146,147 @@ var Maps = {
             for(x=0; x < this.enemies.length ; x++){
                 this.enemies[x].update(deltaTime, this.blocks);
             }
+
+            Maps.Player.moveKey(deltaTime);
+            Maps.Player.update(this.enemies, this.blocks, this.winblock);
+
+            this.winblock.draw();
+        }
+    },
+
+    Level2: function(){
+        this.blockSize = 25;
+        this.blocks = [];
+        this.enemies = [];
+        this.winblock = {};
+        this.map = map2;
+
+        this.buildMap = function(){
+            var i = 0;
+            var j = 0;
+            var b = 0;
+            var c = 0;
+            
+            for(i=0; i < 26; i++){
+                for(j=0; j < 20; j++){
+                    if(this.map[j][i]==1){
+                        this.blocks.push(new Maps.Block(i*this.blockSize, j*this.blockSize, this.blockSize));
+                        this.blocks[b].draw();
+                        b++;
+                    }
+                    else if(this.map[j][i]==2){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 1, 0, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==3){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 0, 1, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==4){
+                        Maps.Player.newPosition(i*this.blockSize, j*this.blockSize, 20);
+                    }
+                    else if(this.map[j][i]==5){
+                        this.winblock = new GameObj.WinBlock(i*this.blockSize, j*this.blockSize, 20);
+                        this.winblock.draw();
+                    }
+                }
+            }
+        }
+
+        this.update = function(deltaTime){
+            var i = 0;
+            var j = 0;
+            var b = 0;
+            var x = 0;
+            
+            for(i=0; i < 26; i++){
+                for(j=0; j < 20; j++){
+                    if(this.map[j][i]==1){
+                        this.blocks[b].draw();
+                        b++;
+                    }
+                }
+            }
+
+            for(x=0; x < this.enemies.length ; x++){
+                this.enemies[x].update(deltaTime, this.blocks);
+            }
+
+            Maps.Player.moveKey(deltaTime);
+            Maps.Player.update(this.enemies, this.blocks, this.winblock);
+
+            this.winblock.draw();
+        }
+    },
+
+    Level3: function(){
+        this.blockSize = 25;
+        this.blocks = [];
+        this.enemies = [];
+        this.winblock = {};
+        this.map = map3;
+
+        this.buildMap = function(){
+            var i = 0;
+            var j = 0;
+            var b = 0;
+            var c = 0;
+            
+            for(i=0; i < 26; i++){
+                for(j=0; j < 20; j++){
+                    if(this.map[j][i]==1){
+                        this.blocks.push(new Maps.Block(i*this.blockSize, j*this.blockSize, this.blockSize));
+                        this.blocks[b].draw();
+                        b++;
+                    }
+                    else if(this.map[j][i]==2){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 1, 0, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==3){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 0, 1, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==4){
+                        Maps.Player.newPosition(i*this.blockSize, j*this.blockSize, 20);
+                    }
+                    else if(this.map[j][i]==5){
+                        this.winblock = new GameObj.WinBlock(i*this.blockSize, j*this.blockSize, 20);
+                        this.winblock.draw();
+                    }
+                }
+            }
+        }
+
+        this.update = function(deltaTime){
+            // var i = 0;
+            // var j = 0;
+            // var b = 0;
+            // var x = 0;
+            
+            // for(i=0; i < 26; i++){
+            //     for(j=0; j < 20; j++){
+            //         if(this.map[j][i]==1){
+            //             this.blocks[b].draw();
+            //             b++;
+            //         }
+            //     }
+            // }
+
+            // for(x=0; x < this.enemies.length ; x++){
+            //     this.enemies[x].update(deltaTime, this.blocks);
+            // }
+
+            // Maps.Player.moveKey(deltaTime);
+            // Maps.Player.update(this.enemies, this.blocks, this.winblock);
+
+            // this.winblock.draw();
+            ctx.fillStyle = "#462ecc";
+            ctx.strokeText("More maps coming soon!", 100, 205);
         }
     }
 }

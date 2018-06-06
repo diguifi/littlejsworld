@@ -2,19 +2,21 @@
 var Game = {
     deltaTime: 0,
     lastFrameTimeMs: 0,
-    level: 1,
-    player: new GameObj.Player(30, 400, 20),
-    
-    map: new Maps.Level1(),
+    level: 0,
+    player:  Maps.Player,
+    maps: [new Maps.Level3(), new Maps.Level2(), new Maps.Level3()],
 
     init: function init(){
-        this.player.draw();
-        this.map.buildMap();
+        Game.mapBuilder();
         requestAnimationFrame(Game.mainLoop);
     },
 
+    mapBuilder: function build(){
+      this.maps[this.level].buildMap();
+    },
+
     reset: function reset(){
-        this.player.reset();
+        this.maps[this.level].reset();
         this.deltaTime = 0;
         this.lastFrameTimeMs = 0;
     },
@@ -33,10 +35,12 @@ var Game = {
   
     update: function update(deltaTime){
       var i = 0;
-      this.map.update(deltaTime);
-
-      this.player.moveKey(deltaTime);
-      this.player.update(this.map.enemies, this.map.blocks);
+      this.maps[this.level].update(deltaTime);
+      
+      if(this.level != this.player.level){
+        this.level = this.player.level;
+        Game.mapBuilder();
+      }
     }
 }
 

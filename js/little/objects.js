@@ -75,6 +75,8 @@ var GameObj = {
     this.x = this.spawn[0] + this.deltaX;
     this.y = this.spawn[1] + this.deltaY;
 
+    this.level = 0;
+
     this.draw = function() {
       ctx.beginPath();
       ctx.moveTo(this.spawn[0] + this.deltaX, this.spawn[1] + this.deltaY);
@@ -94,7 +96,7 @@ var GameObj = {
       ctx.fill();
     }
 
-    this.update = function(enemies, blocks){
+    this.update = function(enemies, blocks, winblock){
 
       this.draw();
 
@@ -110,11 +112,31 @@ var GameObj = {
           this.reset();
         }
       }
+
+      if(this.checkColl(winblock)){
+        this.level++;
+      }
     }
 
     this.reset = function(){
       this.deltaX= 0;
       this.deltaY= 0;
+      this.draw();
+    }
+
+    this.newPosition = function(x,y){
+      this.spawn = [x, y,
+                  x+size, y,
+                  x+size, y+size,
+                  x, y+size];
+
+      this.deltaX = 0;
+      this.deltaY = 0;
+      this.speed = 0.2;
+
+      this.x = this.spawn[0] + this.deltaX;
+      this.y = this.spawn[1] + this.deltaY;
+
       this.draw();
     }
 
@@ -159,6 +181,36 @@ var GameObj = {
       obstacle.x + obstacle.size > this.x &&
       obstacle.y < this.y + this.size &&
       obstacle.y + obstacle.size > this.y;
+    }
+  },
+
+  WinBlock: function(x,y,size){
+    this.spawn = [x, y,
+                  x+size, y,
+                  x+size, y+size,
+                  x, y+size];
+
+    this.size = size;
+    this.x = this.spawn[0];
+    this.y = this.spawn[1];
+
+    this.draw = function() {
+      ctx.beginPath();
+      ctx.moveTo(this.spawn[0], this.spawn[1]);
+      ctx.lineTo(this.spawn[2], this.spawn[3]);
+      ctx.lineTo(this.spawn[4], this.spawn[5]);
+      ctx.lineTo(this.spawn[6], this.spawn[7]);
+      ctx.closePath();
+
+      this.x = this.spawn[0];
+      this.y = this.spawn[1];
+      
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = "rgba(102, 102, 102, 1)";
+      ctx.stroke();
+      
+      ctx.fillStyle = "rgba(28, 79, 160)";
+      ctx.fill();
     }
   }
 }

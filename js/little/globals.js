@@ -1,6 +1,6 @@
 c=document.getElementById("mainCanvas");
 ctx=c.getContext("2d");
-ctx.font = "22px Arial";
+ctx.font = "32px arial, verdana, sans-serif ";
 
 var keys = [];
 

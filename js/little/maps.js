@@ -40,26 +40,47 @@ var map2 = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
 
-var map3 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]];
+var map3 = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,4,0,0,1,0,0,0,0,0,2,0,0,0,0,0,1,0,0,5,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,2,0,0,0,1,1],
+            [1,0,0,0,0,0,1,0,2,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,2,0,1,1],
+            [1,0,0,2,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,2,0,1,0,0,0,3,0,1,0,0,2,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,1,0,3,0,0,0,1,0,0,0,2,0,1,1],
+            [1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,3,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,2,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+
+var map4 = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,3,0,0,0,0,0,0,3,0,0,0,0,0,4,0,0,1,1],
+            [1,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,3,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,2,0,0,0,0,0,3,0,0,0,3,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1],
+            [1,0,0,0,0,3,0,0,0,0,0,0,3,0,0,0,0,0,2,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,2,0,0,0,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,1,1],
+            [1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
 
 var Maps = {
     Player:  new GameObj.Player(-25, -25, 20),
@@ -84,6 +105,61 @@ var Maps = {
     
           ctx.fillStyle = "rgba(102, 102, 102, 1)";
           ctx.fill();
+        }
+    },
+
+    MainMenu: function(){
+
+        this.buildMap = function(){
+            return 0;
+        }
+
+        this.update = function(deltaTime){
+            ctx.font = "58px Arial";
+            ctx.shadowColor = "green"
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowBlur = 10;
+            ctx.fillText("Little Js World",120,140);
+
+            ctx.font = "22px Arial";
+            ctx.shadowColor = "grey"
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowBlur = 1;
+            ctx.fillText("A simple JavaScript game",185,170);
+            ctx.fillText("Made by Diego Penha",200,195);
+
+            ctx.fillText("Use arrow keys to move",195,300);
+            
+            ctx.beginPath();
+            ctx.moveTo(251, 365);
+            ctx.lineTo(251, 415);
+            ctx.lineTo(368, 415);
+            ctx.lineTo(368, 365);
+            ctx.closePath();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "rgba(102, 102, 102, 1)";
+            ctx.stroke();
+
+            ctx.font = "32px Arial";
+            ctx.shadowColor = "green"
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowBlur = 2;
+            ctx.fillText("Start",275,400);
+
+            if(this.checkClick()){
+                ctx.restore();
+                Maps.Player.level++;
+            }
+        }
+
+        this.checkClick = function(){
+            return click[0] < 368 &&
+            click[0] > 251 &&
+            click[1] < 415 &&
+            click[1] > 365;
         }
     },
     
@@ -263,30 +339,110 @@ var Maps = {
         }
 
         this.update = function(deltaTime){
-            // var i = 0;
-            // var j = 0;
-            // var b = 0;
-            // var x = 0;
+            var i = 0;
+            var j = 0;
+            var b = 0;
+            var x = 0;
             
-            // for(i=0; i < 26; i++){
-            //     for(j=0; j < 20; j++){
-            //         if(this.map[j][i]==1){
-            //             this.blocks[b].draw();
-            //             b++;
-            //         }
-            //     }
-            // }
+            for(i=0; i < 26; i++){
+                for(j=0; j < 20; j++){
+                    if(this.map[j][i]==1){
+                        this.blocks[b].draw();
+                        b++;
+                    }
+                }
+            }
 
-            // for(x=0; x < this.enemies.length ; x++){
-            //     this.enemies[x].update(deltaTime, this.blocks);
-            // }
+            for(x=0; x < this.enemies.length ; x++){
+                this.enemies[x].update(deltaTime, this.blocks);
+            }
 
-            // Maps.Player.moveKey(deltaTime);
-            // Maps.Player.update(this.enemies, this.blocks, this.winblock);
+            Maps.Player.moveKey(deltaTime);
+            Maps.Player.update(this.enemies, this.blocks, this.winblock);
 
-            // this.winblock.draw();
-            ctx.fillStyle = "#462ecc";
-            ctx.strokeText("More maps coming soon!", 100, 205);
+            this.winblock.draw();
+        }
+    },
+
+    Level4: function(){
+        this.blockSize = 25;
+        this.blocks = [];
+        this.enemies = [];
+        this.winblock = {};
+        this.map = map4;
+
+        this.buildMap = function(){
+            var i = 0;
+            var j = 0;
+            var b = 0;
+            var c = 0;
+            
+            for(i=0; i < 26; i++){
+                for(j=0; j < 20; j++){
+                    if(this.map[j][i]==1){
+                        this.blocks.push(new Maps.Block(i*this.blockSize, j*this.blockSize, this.blockSize));
+                        this.blocks[b].draw();
+                        b++;
+                    }
+                    else if(this.map[j][i]==2){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 1, 0, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==3){
+                        this.enemies.push(new GameObj.Enemy(i*this.blockSize, j*this.blockSize, 0, 1, 20, 0.1));
+                        this.enemies[c].draw();
+                        c++;
+                    }
+                    else if(this.map[j][i]==4){
+                        Maps.Player.newPosition(i*this.blockSize, j*this.blockSize, 20);
+                    }
+                    else if(this.map[j][i]==5){
+                        this.winblock = new GameObj.WinBlock(i*this.blockSize, j*this.blockSize, 20);
+                        this.winblock.draw();
+                    }
+                }
+            }
+        }
+
+        this.update = function(deltaTime){
+            var i = 0;
+            var j = 0;
+            var b = 0;
+            var x = 0;
+            
+            for(i=0; i < 26; i++){
+                for(j=0; j < 20; j++){
+                    if(this.map[j][i]==1){
+                        this.blocks[b].draw();
+                        b++;
+                    }
+                }
+            }
+
+            for(x=0; x < this.enemies.length ; x++){
+                this.enemies[x].update(deltaTime, this.blocks);
+            }
+
+            Maps.Player.moveKey(deltaTime);
+            Maps.Player.update(this.enemies, this.blocks, this.winblock);
+
+            this.winblock.draw();
+        }
+    },
+
+    More: function(){
+        this.buildMap = function(){
+            ctx.restore();
+        }
+
+        this.update = function(deltaTime){
+            ctx.font = "58px Arial";
+            ctx.shadowColor = "green"
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowBlur = 10;
+            ctx.fillText("More maps soon!",90,140);
         }
     }
 }

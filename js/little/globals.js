@@ -1,8 +1,9 @@
 c=document.getElementById("mainCanvas");
 ctx=c.getContext("2d");
-ctx.font = "32px arial, verdana, sans-serif ";
+ctx.save();
 
 var keys = [];
+var click = [0,0];
 
 window.addEventListener("keydown", function (e) {
     e.preventDefault();
@@ -11,4 +12,10 @@ window.addEventListener("keydown", function (e) {
   window.addEventListener("keyup", function (e) {
     e.preventDefault();
     keys[e.keyCode] = false;
+});
+
+c.addEventListener("click", function (e) {
+    e.preventDefault();
+    click[0] = e.layerX;
+    click[1] = e.layerY;
 });

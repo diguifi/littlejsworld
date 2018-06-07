@@ -4,7 +4,7 @@ var Game = {
     lastFrameTimeMs: 0,
     level: 0,
     player:  Maps.Player,
-    maps: [new Maps.Level1(), new Maps.Level2(), new Maps.Level3()],
+    maps: [new Maps.MainMenu(), new Maps.Level1(), new Maps.Level2(), new Maps.Level3(), new Maps.Level4(), new Maps.More()],
 
     init: function init(){
         Game.mapBuilder();

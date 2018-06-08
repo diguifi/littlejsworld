@@ -43,8 +43,14 @@ var GameObj = {
     this.update = function(deltaTime, blocks){
       for(i=0; i < blocks.length ; i++){
         if(this.checkColl(blocks[i])){
-          this.dirX = -this.dirX;
-          this.dirY = -this.dirY;
+          if(this.dirX !== 0){
+            this.dirX = -this.dirX;
+            this.deltaX += this.speed * deltaTime * this.dirX *2;
+          }
+          if(this.dirY !== 0){
+            this.dirY = -this.dirY;
+            this.deltaY += this.speed * deltaTime * this.dirY *2;
+          }
         }
       }
         this.deltaX += this.speed * deltaTime * this.dirX;

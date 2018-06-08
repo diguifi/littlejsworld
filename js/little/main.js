@@ -4,7 +4,12 @@ var Game = {
     lastFrameTimeMs: 0,
     level: 0,
     player:  Maps.Player,
-    maps: [new Maps.MainMenu(), new Maps.Level1(), new Maps.Level2(), new Maps.Level3(), new Maps.Level4(), new Maps.More()],
+    maps: [new Maps.MainMenu(),
+           new Maps.DeafultLevels(map1),
+           new Maps.DeafultLevels(map2), 
+           new Maps.DeafultLevels(map3), 
+           new Maps.DeafultLevels(map4), 
+           new Maps.More()],
 
     init: function init(){
         Game.mapBuilder();
@@ -22,7 +27,7 @@ var Game = {
     },
 
     mainLoop: function mainLoop(timestamp){
-      this.deltaTime = timestamp - this.lastFrameTimeMs; // get the delta time since last frame
+      this.deltaTime = timestamp - this.lastFrameTimeMs;
       this.lastFrameTimeMs = timestamp;
       if(isNaN(this.deltaTime))
         this.deltaTime = 0;

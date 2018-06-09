@@ -81,6 +81,7 @@ var GameObj = {
     this.x = this.spawn[0] + this.deltaX;
     this.y = this.spawn[1] + this.deltaY;
 
+    this.keys = 0;
     this.level = 0;
 
     this.draw = function() {
@@ -102,7 +103,7 @@ var GameObj = {
       ctx.fill();
     }
 
-    this.update = function(enemies, blocks, winblock){
+    this.update = function(enemies, blocks, winblock, keyblocks, keysneeded){
 
       this.draw();
 
@@ -110,23 +111,39 @@ var GameObj = {
       for(i=0; i < enemies.length ; i++){
         if(this.checkColl(enemies[i])){
           this.reset();
+          return true;
         }
       }
 
       for(i=0; i < blocks.length ; i++){
         if(this.checkColl(blocks[i])){
           this.reset();
+          return true;
+        }
+      }
+
+      for(i=0; i < keyblocks.length ; i++){
+        if(this.checkColl(keyblocks[i])){
+          keyblocks.splice(i,1);
+          this.keys++;
         }
       }
 
       if(this.checkColl(winblock)){
-        this.level++;
+        if(keysneeded === this.keys)
+          this.level++;
+        else{
+          ctx.font = "15px Arial";
+          ctx.fillStyle = "black";
+          ctx.fillText("Must get all keys!",this.x-45,this.y-10);
+        }
       }
     }
 
     this.reset = function(){
       this.deltaX= 0;
       this.deltaY= 0;
+      this.keys = 0;
       this.draw();
     }
 
@@ -245,7 +262,7 @@ var GameObj = {
       ctx.strokeStyle = "rgba(102, 102, 102, 1)";
       ctx.stroke();
       
-      ctx.fillStyle = "rgba(229, 229, 39)";
+      ctx.fillStyle = "rgba(198, 198, 29)";
       ctx.fill();
     }
   }

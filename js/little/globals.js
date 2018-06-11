@@ -24,8 +24,8 @@ c.addEventListener("click", function (e) {
 c.addEventListener("touchstart", function (e) {
     e.preventDefault();
     mouseDown = true;
-    click[0] = e.touches[0].clientX;
-    click[1] = e.touches[0].clientY - e.path[0].offsetTop;
+    click[0] = e.touches[0].pageX;
+    click[1] = e.touches[0].pageY - e.path[0].offsetTop;
 }, false);
 
 c.addEventListener("touchend", function (e) {
@@ -37,7 +37,7 @@ c.addEventListener("touchmove", function (e) {
     e.preventDefault();
     if(mouseDown){
         var touch = e.touches[0];
-        click[0] = touch.clientX;
-        click[1] = touch.clientY - e.path[0].offsetTop;
+        click[0] = touch.pageX;
+        click[1] = touch.pageY - e.path[0].offsetTop;
     }
 }, false);

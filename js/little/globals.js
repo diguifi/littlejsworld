@@ -15,28 +15,11 @@ window.addEventListener("keydown", function (e) {
     keys[e.keyCode] = false;
 });
 
-// c.addEventListener("mousedown", function (e) {
-//     e.preventDefault();
-//     mouseDown = true;
-//     click[0] = e.layerX;
-//     click[1] = e.layerY;
-// });
-
-// c.addEventListener("mousemove", function (e) {
-//     e.preventDefault();
-//     if(mouseDown){
-//         click[0] = e.layerX;
-//         click[1] = e.layerY;
-//     }
-// });
-
-// c.addEventListener("mouseup", function (e) {
-//     e.preventDefault();
-//     mouseDown = false;
-// });
-
-
-
+c.addEventListener("click", function (e) {
+    e.preventDefault();
+    click[0] = e.layerX;
+    click[1] = e.layerY;
+});
 
 c.addEventListener("touchstart", function (e) {
     e.preventDefault();

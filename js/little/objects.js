@@ -105,6 +105,9 @@ var GameObj = {
 
     this.update = function(enemies, blocks, winblock, keyblocks, keysneeded){
 
+      this.moveKey(deltaTime);
+      this.click(deltaTime);
+
       this.draw();
 
       var i = 0;
@@ -195,6 +198,23 @@ var GameObj = {
         }
         else{
           this.deltaY += deltaTime * this.speed + 0.1;
+        }
+      }
+    }
+
+    this.click = function(){
+      if(mouseDown){
+        if(this.x < click[0]){
+          this.deltaX += deltaTime * this.speed;
+        }
+        else{
+          this.deltaX -= deltaTime * this.speed;
+        }
+        if(this.y < click[1]){
+          this.deltaY += deltaTime * this.speed;
+        }
+        else{
+          this.deltaY -= deltaTime * this.speed;
         }
       }
     }

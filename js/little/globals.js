@@ -4,6 +4,7 @@ ctx.save();
 
 var keys = [];
 var click = [0,0];
+var mouseDown = false;
 
 window.addEventListener("keydown", function (e) {
     e.preventDefault();
@@ -14,8 +15,14 @@ window.addEventListener("keydown", function (e) {
     keys[e.keyCode] = false;
 });
 
-c.addEventListener("click", function (e) {
+c.addEventListener("mousedown", function (e) {
     e.preventDefault();
+    mouseDown = true;
     click[0] = e.layerX;
     click[1] = e.layerY;
+});
+
+c.addEventListener("mouseup", function (e) {
+    e.preventDefault();
+    mouseDown = false;
 });

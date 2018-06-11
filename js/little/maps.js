@@ -254,7 +254,6 @@ var Maps = {
                 this.enemies[x].update(deltaTime, this.blocks);
             }
 
-            Maps.Player.moveKey(deltaTime);
             this.hasDied = Maps.Player.update(this.enemies, this.blocks, this.winblock, this.keyblocks, this.keysNeeded);
 
             this.winblock.draw();

@@ -204,14 +204,13 @@ var GameObj = {
 
     this.click = function(){
       if(mouseDown){
-        console.log(click);
-        if(this.x < click[0]){
+        if(this.x < click[0]-(this.size/2)){
           this.deltaX += deltaTime * this.speed;
         }
         else{
           this.deltaX -= deltaTime * this.speed;
         }
-        if(this.y < click[1]){
+        if(this.y < click[1]-(this.size/2)){
           this.deltaY += deltaTime * this.speed;
         }
         else{

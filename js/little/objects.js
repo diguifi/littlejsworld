@@ -83,6 +83,7 @@ var GameObj = {
 
     this.keys = 0;
     this.level = 0;
+    this.deaths = 0;
 
     this.draw = function() {
       ctx.beginPath();
@@ -144,6 +145,7 @@ var GameObj = {
     }
 
     this.reset = function(){
+      this.deaths++;
       this.deltaX= 0;
       this.deltaY= 0;
       this.keys = 0;

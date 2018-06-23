@@ -374,7 +374,7 @@ var Maps = {
         this.drawHud = function(){
             ctx.restore();
             ctx.font = "18px Arial";
-            ctx.fillStyle = "black";
+            ctx.fillStyle = "white";
             var text = "Deaths: " + Maps.Player.deaths;
             ctx.fillText(text,10,15);
             ctx.restore();

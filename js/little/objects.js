@@ -41,6 +41,9 @@ var GameObj = {
     }
 
     this.update = function(deltaTime, blocks){
+      if(deltaTime > 30)
+        deltaTime = 16;
+
       for(i=0; i < blocks.length ; i++){
         if(this.checkColl(blocks[i])){
           if(this.dirX !== 0){

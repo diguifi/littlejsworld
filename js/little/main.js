@@ -17,6 +17,7 @@ var Game = {
            new Maps.DeafultLevels(map10),
            new Maps.DeafultLevels(map11),
            new Maps.DeafultLevels(map12),
+           new Maps.DeafultLevels(map13),
            new Maps.More()],
 
     init: function init(){

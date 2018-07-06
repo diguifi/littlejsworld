@@ -155,7 +155,7 @@ var GameObj = {
       this.draw();
     }
 
-    this.newPosition = function(x,y){
+    this.newPosition = function(x,y,speed){
       this.spawn = [x, y,
                   x+size, y,
                   x+size, y+size,
@@ -163,7 +163,7 @@ var GameObj = {
 
       this.deltaX = 0;
       this.deltaY = 0;
-      this.speed = 0.2;
+      this.speed = speed;
 
       this.x = this.spawn[0] + this.deltaX;
       this.y = this.spawn[1] + this.deltaY;

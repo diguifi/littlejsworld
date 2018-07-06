@@ -137,7 +137,7 @@ var GameObj = {
       }
 
       if(this.checkColl(winblock)){
-        if(keysneeded === this.keys)
+        if(keysneeded >= this.keys)
           this.level++;
         else{
           ctx.font = "15px Arial";
@@ -163,6 +163,7 @@ var GameObj = {
 
       this.deltaX = 0;
       this.deltaY = 0;
+      this.keys = 0;
       this.speed = speed;
 
       this.x = this.spawn[0] + this.deltaX;

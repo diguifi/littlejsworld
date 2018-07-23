@@ -355,6 +355,27 @@ var map17 = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,1,0,0,0,0],
             [1,1,1,1,1,1,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,5,1,0,4,0],
             [0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,1,0,0,1,0,0,0]];
 
+var map18 = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,3,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,3,0,0,6,0,1,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,2,0,1,1,1,1,1,1,1,0,0,0,0,1,0,7.1,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1],
+            [1,0,0,0,0,0,2,0,1,1,1,1,1,1,1,0,0,0,0,1,0,5,0,0,1,1],
+            [1,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,3,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,7.1,0,1,0,0,0,0,0,0,0,0,0,1,1],
+            [1,0,0,0,0,3,0,0,0,3,0,0,0,0,1,0,0,0,0,0,0,0,4,0,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]];
+
 var Maps = {
     Player:  new GameObj.Player(-25, -25, 20),
 
@@ -444,6 +465,7 @@ var Maps = {
         this.keyblocks = [];
         this.originalkeyblocks = [];
         this.keysNeeded = 0;
+        this.teleportblocks = [];
         this.hasDied = false;
         this.map = map;
 
@@ -453,6 +475,9 @@ var Maps = {
             var b = 0;
             var c = 0;
             var d = 0;
+            var e = 0;
+            var f = 0;
+            var g = 0;
             
             for(i=0; i < 26; i++){
                 for(j=0; j < 20; j++){
@@ -476,7 +501,7 @@ var Maps = {
                         if (this.map === map17)
                             speed = 0.1;
 
-                        Maps.Player.newPosition(i*this.blockSize, j*this.blockSize, speed);
+                        Maps.Player.newPosition(i*this.blockSize, j*this.blockSize, speed, true);
                     }
                     else if(this.map[j][i]==5){
                         this.winblock = new GameObj.WinBlock(i*this.blockSize, j*this.blockSize, 20);
@@ -486,6 +511,23 @@ var Maps = {
                         this.keyblocks.push(new GameObj.KeyBlock(i*this.blockSize, j*this.blockSize, 15));
                         this.keyblocks[d].draw();
                         d++;
+                    }
+                    else if(this.map[j][i]>7 && this.map[j][i]<8){
+                        this.teleportblocks.push(new GameObj.TeleportBlock(i*this.blockSize, j*this.blockSize, 20));
+                        this.teleportblocks[e].draw();
+
+                        // vasculha o mapa por portais com o mesmo valor para setar o atributo "teleportTo"
+                        for(f=0; f < 26; f++){
+                            for(g=0; g < 20; g++){
+                                if (f !== i || g !== j){
+                                    if(this.map[j][i] === this.map[g][f]){
+                                        this.teleportblocks[e].teleportTo = [f*this.blockSize+21, g*this.blockSize];
+                                    }
+                                }
+                            }
+                        }
+
+                        e++;
                     }
                 }
             }
@@ -497,6 +539,11 @@ var Maps = {
             var y = 0;
             var x = 0;
             var z = 0;
+            var w = 0;
+
+            for(w=0; w < this.teleportblocks.length ; w++){
+                this.teleportblocks[w].draw();
+            }
 
             for(z=0; z < this.keyblocks.length ; z++){
                 this.keyblocks[z].draw();
@@ -510,7 +557,7 @@ var Maps = {
                 this.enemies[x].update(deltaTime, this.blocks);
             }
 
-            this.hasDied = Maps.Player.update(this.enemies, this.blocks, this.winblock, this.keyblocks, this.keysNeeded);
+            this.hasDied = Maps.Player.update(this.enemies, this.blocks, this.winblock, this.keyblocks, this.keysNeeded, this.teleportblocks);
 
             this.winblock.draw();
 

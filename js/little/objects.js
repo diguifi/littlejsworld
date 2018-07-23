@@ -107,7 +107,7 @@ var GameObj = {
       ctx.fill();
     }
 
-    this.update = function(enemies, blocks, winblock, keyblocks, keysneeded){
+    this.update = function(enemies, blocks, winblock, keyblocks, keysneeded, teleportBlocks){
 
       this.moveKey(deltaTime);
       this.click(deltaTime);
@@ -136,8 +136,14 @@ var GameObj = {
         }
       }
 
+      for(i=0; i < teleportBlocks.length ; i++){
+        if(this.checkColl(teleportBlocks[i])){
+          this.newPosition(teleportBlocks[i].teleportTo[0],teleportBlocks[i].teleportTo[1],this.speed,false);
+        }
+      }
+
       if(this.checkColl(winblock)){
-        if(keysneeded >= this.keys)
+        if(keysneeded <= this.keys)
           this.level++;
         else{
           ctx.font = "15px Arial";
@@ -155,19 +161,23 @@ var GameObj = {
       this.draw();
     }
 
-    this.newPosition = function(x,y,speed){
+    this.newPosition = function(x,y,speed,resetKeys){
       this.spawn = [x, y,
-                  x+size, y,
-                  x+size, y+size,
-                  x, y+size];
+        x+size, y,
+        x+size, y+size,
+        x, y+size];
 
       this.deltaX = 0;
       this.deltaY = 0;
-      this.keys = 0;
+      
+      if(resetKeys){
+        this.keys = 0;
+      }
+
       this.speed = speed;
 
-      this.x = this.spawn[0] + this.deltaX;
-      this.y = this.spawn[1] + this.deltaY;
+      this.x = x + this.deltaX;
+      this.y = y + this.deltaY;
 
       this.draw();
     }
@@ -289,6 +299,37 @@ var GameObj = {
       ctx.stroke();
       
       ctx.fillStyle = "rgba(198, 198, 29)";
+      ctx.fill();
+    }
+  },
+
+  TeleportBlock: function(x,y,size){
+    this.spawn = [x, y,
+                  x+size, y,
+                  x+size, y+size,
+                  x, y+size];
+
+    this.size = size;
+    this.x = this.spawn[0];
+    this.y = this.spawn[1];
+    this.teleportTo = [0, 0];
+
+    this.draw = function() {
+      ctx.beginPath();
+      ctx.moveTo(this.spawn[0], this.spawn[1]);
+      ctx.lineTo(this.spawn[2], this.spawn[3]);
+      ctx.lineTo(this.spawn[4], this.spawn[5]);
+      ctx.lineTo(this.spawn[6], this.spawn[7]);
+      ctx.closePath();
+
+      this.x = this.spawn[0];
+      this.y = this.spawn[1];
+      
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = "rgba(102, 102, 102, 1)";
+      ctx.stroke();
+      
+      ctx.fillStyle = "rgb(156, 52, 201)";
       ctx.fill();
     }
   }

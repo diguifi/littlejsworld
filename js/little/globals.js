@@ -41,3 +41,10 @@ c.addEventListener("touchmove", function (e) {
         click[1] = touch.pageY - e.path[0].offsetTop;
     }
 }, false);
+
+
+doNotRepeat = false;
+phrases = ["Are you Ok?", "Man thats a lot of damage", "Calm down bro!",
+            "Please dont be mad...", "You look pissed", "Come on, its not that hard",
+            "Why are you crying?", "You are very bad, sory", "Not doing so great i guess",
+            "Have you tried yoga?", "oh boy...", "Its fine, relax"];

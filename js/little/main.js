@@ -48,6 +48,16 @@ var Game = {
       if(isNaN(this.deltaTime))
         this.deltaTime = 0;
 
+      if(Game.player.deaths % 50 === 0 && Game.player.deaths > 0){
+        if(!doNotRepeat){
+          mainWelcome.textContent=phrases[Math.floor((Math.random() * 10) + 1)];
+          doNotRepeat = true;
+        }
+      }
+      else{
+        doNotRepeat = false;
+      }
+
       ctx.clearRect(0, 0, c.width, c.height);
       Game.update(this.deltaTime);
   

@@ -44,7 +44,8 @@ c.addEventListener("touchmove", function (e) {
 
 
 doNotRepeat = false;
-phrases = ["Are you Ok?", "Man thats a lot of damage", "Calm down bro!",
-            "Please dont be mad...", "You look pissed", "Come on, its not that hard",
-            "Why are you crying?", "You are very bad, sory", "Not doing so great i guess",
-            "Have you tried yoga?", "oh boy...", "Its fine, relax"];
+phrases = [["Not starting so well...", "You're not even on lvl 5", "Man, come on", "This level is very easy...", "Oh boy..."],
+            ["No doing so good...", "Its not even lvl 10!", "Come on, its not that hard", "Thats really bad gameplay", "This is awful"],
+            ["Are you mad?", "You are very bad, sory", "Not doing so great i guess", "Its so simple", "Just stop"],
+            ["Man thats a lot of damage", "Try harder, thats ridiculous", "Just give up already", "You look mad", "Breathe, think, and leave"],
+            ["Why are you doing this", "HUE", "This is so sad", "Damn you suck bro", "GOD! why wont you stop dieing?"]];

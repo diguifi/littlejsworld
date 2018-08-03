@@ -47,16 +47,8 @@ var Game = {
       this.lastFrameTimeMs = timestamp;
       if(isNaN(this.deltaTime))
         this.deltaTime = 0;
-
-      if(Game.player.deaths % 50 === 0 && Game.player.deaths > 0){
-        if(!doNotRepeat){
-          mainWelcome.textContent=phrases[Math.floor((Math.random() * 10) + 1)];
-          doNotRepeat = true;
-        }
-      }
-      else{
-        doNotRepeat = false;
-      }
+      
+      Game.phraseGenerator();
 
       ctx.clearRect(0, 0, c.width, c.height);
       Game.update(this.deltaTime);
@@ -71,6 +63,35 @@ var Game = {
       if(this.level != this.player.level){
         this.level = this.player.level;
         Game.mapBuilder();
+      }
+    },
+
+    phraseGenerator: function phraseGenerator(){
+      if(Game.player.deaths % 12 === 0 && Game.player.deaths > 0){
+        if(!doNotRepeat){
+          var randomValue = Math.floor(((Math.random() * 10)/2));
+
+          if(Game.player.level <= 4){
+            mainWelcome.textContent=phrases[0][randomValue];
+          }
+          else if(Game.player.level > 4 && Game.player.level <= 8){
+            mainWelcome.textContent=phrases[1][randomValue];
+          }
+          else if(Game.player.level > 8 && Game.player.level <= 12){
+            mainWelcome.textContent=phrases[2][randomValue];
+          }
+          else if(Game.player.level > 12 && Game.player.level <= 16){
+            mainWelcome.textContent=phrases[3][randomValue];
+          }
+          else{
+            mainWelcome.textContent=phrases[4][randomValue];
+          }
+          
+          doNotRepeat = true;
+        }
+      }
+      else{
+        doNotRepeat = false;
       }
     }
 }

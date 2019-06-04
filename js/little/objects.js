@@ -154,10 +154,12 @@ var GameObj = {
     }
 
     this.reset = function(){
-      this.deaths++;
+      if (!this.isOnSpawn()){
+        this.deaths++;
+        this.keys = 0;
+      }
       this.deltaX= 0;
       this.deltaY= 0;
-      this.keys = 0;
       this.draw();
     }
 
@@ -233,6 +235,13 @@ var GameObj = {
           this.deltaY -= deltaTime * this.speed;
         }
       }
+    }
+
+    this.isOnSpawn = function(){
+      return this.spawn[0] - 5 < this.x + this.size &&
+      this.spawn[2] + 5 > this.x &&
+      this.spawn[1] - 5 < this.y + this.size &&
+      this.spawn[7] + 5 > this.y;
     }
 
     this.checkColl = function(obstacle){
